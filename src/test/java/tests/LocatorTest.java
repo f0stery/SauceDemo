@@ -21,7 +21,23 @@ public class LocatorTest extends BaseTest {
         driver.findElement(By.xpath("//a[contains(text(),'Backpack']"));
         driver.findElement(By.xpath("//input[@id='username']//ancestor::div"));
         driver.findElement(By.xpath("//form/descendant::input[@data-test='username']"));
-        //river.findElement(By.xpath());
+        driver.findElement(By.xpath("//input[@data-test='username']" +
+                "/following::input[@data-test='login-button']"));
+        driver.findElement(By.xpath("//input[@data-test='login-button']/parent::form"));
+        driver.findElement(By.xpath("//input[@data-test='login-button']" +
+                "/preceding::input[@data-test='username']"));
+        driver.findElement(By.cssSelector(".error"));
+        driver.findElement(By.cssSelector(".error-message-container.error"));
+        driver.findElement(By.cssSelector(".error-message-container .error-button"));
+        driver.findElement(By.cssSelector("#login-button"));
+        driver.findElement(By.cssSelector("h3"));
+        driver.findElement(By.cssSelector("div.error-message-container"));
+        driver.findElement(By.cssSelector("[type='submit']"));
+        driver.findElement(By.cssSelector("[class~='error']"));
+        driver.findElement(By.cssSelector("[class^='error']"));
+        driver.findElement(By.cssSelector("[class$='container']"));
+        driver.findElement(By.cssSelector("[class*='mess']"));
+
 
 
     }
