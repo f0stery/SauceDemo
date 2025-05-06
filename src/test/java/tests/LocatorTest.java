@@ -37,8 +37,5 @@ public class LocatorTest extends BaseTest {
         driver.findElement(By.cssSelector("[class^='error']"));
         driver.findElement(By.cssSelector("[class$='container']"));
         driver.findElement(By.cssSelector("[class*='mess']"));
-
-
-
     }
 }
