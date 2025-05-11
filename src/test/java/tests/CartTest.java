@@ -2,23 +2,25 @@ package tests;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
-
 public class CartTest extends BaseTest {
 
     @Test
-    public void test() {
+    public void checkCart() {
 
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.addProduct("Sauce Labs Backpack");
-        productsPage.addProduct("Sauce Labs Bike Light");
         productsPage.openCart();
-        assertTrue(cartPage.isProductInCart("Sauce Labs Backpack"), "Nothing");
-        assertEquals(cartPage.getProductFromCart(0),
+        softAssert.assertTrue(cartPage.isProductInCart("Sauce Labs Backpack"),
+                "Товар 'Sauce Labs Backpack' должен быть в корзине");
+        softAssert.assertEquals(cartPage.getProductFromCart(0),
                 "Sauce Labs Backpack",
-                "No");
-        assertTrue(cartPage.getProductName().contains("Sauce Labs Backpack"));
+                "Название первого товара в корзине не совпадает");
+        softAssert.assertTrue(cartPage.getProductsName().contains("Sauce Labs Backpack"),
+                "Список товаров должен содержать 'Sauce Labs Backpack'");
+        softAssert.assertEquals(cartPage.getProductPrice("Sauce Labs Backpack"),
+                29.99,
+                "Цена товара не соответствует ожидаемой");
+        softAssert.assertAll();
     }
 }

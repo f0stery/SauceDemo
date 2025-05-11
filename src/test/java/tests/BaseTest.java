@@ -8,7 +8,6 @@ import org.testng.asserts.SoftAssert;
 import pages.CartPage;
 import pages.LoginPage;
 import pages.ProductsPage;
-import pages.SortPage;
 
 import java.time.Duration;
 
@@ -19,8 +18,6 @@ public class BaseTest {
     SoftAssert softAssert;
     ProductsPage productsPage;
     CartPage cartPage;
-    SortPage sortPage;
-
 
     @BeforeMethod
     public void setup() {
@@ -31,7 +28,6 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
-        sortPage = new SortPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)
