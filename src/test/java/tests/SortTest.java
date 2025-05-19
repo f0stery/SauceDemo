@@ -6,7 +6,7 @@ import static org.testng.Assert.assertTrue;
 
 public class SortTest extends BaseTest{
 
-    @Test
+    @Test (testName = "Проверка сортировки от A до Z")
     public void checkSortAToZ() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -15,7 +15,7 @@ public class SortTest extends BaseTest{
                 "Товары должны быть отсортированы A-Z");
     }
 
-    @Test
+    @Test (testName = "Проверка сортировки от Z до A")
     public void checkSortZtoA() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -24,7 +24,7 @@ public class SortTest extends BaseTest{
                 "Товары должны быть отсортированы Z-A");
     }
 
-    @Test
+    @Test (testName = "Негативная проверка сортировки A до Z")
     public void checkWrongSortAToZ() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -34,7 +34,7 @@ public class SortTest extends BaseTest{
                         "тут должна быть любая сортировка кроме A-Z");
     }
 
-    @Test
+    @Test (testName = "Проверка сортировки low to high")
     public void checkSortLowToHigh() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -44,7 +44,7 @@ public class SortTest extends BaseTest{
                         "по возрастанию цены low to high");
     }
 
-    @Test
+    @Test (testName = "Проверка сортировки high to low")
     public void checkSortHighToLow() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -54,7 +54,7 @@ public class SortTest extends BaseTest{
                         "по убыванию цены high to low");
     }
 
-    @Test
+    @Test (testName = "Негативная проверка сортировки A до Z")
     public void checkWrongSort() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
