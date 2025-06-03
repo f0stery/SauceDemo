@@ -1,8 +1,10 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
@@ -14,27 +16,42 @@ public class ProductsPage extends BasePage {
         super(driver);
     }
 
-    private static final By TITLE = By.cssSelector("[data-test = title]");
-    private static final By CART_BUTTON = By.cssSelector(".shopping_cart_link");
-
+    private static final By TITLE = By.cssSelector("[data-test = title]"),
+            CART_BUTTON = By.cssSelector(".shopping_cart_link"),
+            SORT_SELECT = By.cssSelector("[data-test='product-sort-container']"),
+            PRODUCT_NAME = By.cssSelector("[data-test='inventory-item-name']"),
+            ITEM_PRICE = By.cssSelector("[data-test='inventory-item-price']");
     private static final String ADD_TO_CART_PATTERN = "//*[text() = '%s']/ancestor" +
-            "::div[@class = 'inventory_item']//button";
+            "::div[@class = 'inventory_item']//button",
+            PRODUCT_PAGE_URL = "https://www.saucedemo.com/inventory.html";
+
+    @Override
+    public ProductsPage open() {
+        driver.get(PRODUCT_PAGE_URL);
+        return this;
+    }
+
+    @Override
+    public ProductsPage isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Products']")));
+        return this;
+    }
 
     public String getTitle() {
         return driver.findElement(TITLE).getText();
     }
 
-    public void addProduct(String product) {
+    @Step("Добавление товара с именем: {product} в корзину")
+    public ProductsPage addProduct(String product) {
         driver.findElement(By.xpath(String.format(ADD_TO_CART_PATTERN, product))).click();
+        return this;
     }
 
-    public void openCart() {
+    @Step("Нажатие кнопки корзины")
+    public CartPage openCart() {
         driver.findElement(CART_BUTTON).click();
+        return new CartPage(driver);
     }
-
-    private static final By SORT_SELECT = By.cssSelector("[data-test='product-sort-container']");
-    private static final By PRODUCT_NAME = By.cssSelector("[data-test='inventory-item-name']");
-    private static final By ITEM_PRICE = By.cssSelector("[data-test='inventory-item-price']");
 
     public void selectSort(String sort) {
         Select sortDropDown = new Select(driver.findElement(SORT_SELECT));

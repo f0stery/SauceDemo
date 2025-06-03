@@ -1,5 +1,8 @@
 package tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -8,9 +11,14 @@ import static org.testng.Assert.assertEquals;
 public class LoginTest extends BaseTest {
 
     @Test (testName = "Удачный вход", priority = 1, description = "Удачный логин")
+    @Epic("Авторизация")
+    @Feature("Страница логина")
+    @Story("Позитивный логин")
     public void checkSuccessLogin() {
-        loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.open()
+                .isPageOpened()
+                .login("standard_user", "secret_sauce")
+                .isPageOpened();
         assertEquals(productsPage.getTitle(),
                 "Products",
                 "Логин не выполнен");
@@ -18,8 +26,9 @@ public class LoginTest extends BaseTest {
 
     @Test (testName = "Проверка логина с пустым паролем", priority = 2)
     public void checkLoginWithEmptyPassword() {
-        loginPage.open();
-        loginPage.login("standard_user", "");
+        loginPage.open()
+                .isPageOpened()
+                .login("standard_user", "");
         assertEquals(loginPage.getErrorMessage(),
                 "Epic sadface: Password is required",
                 "SO BAAD");
@@ -27,8 +36,9 @@ public class LoginTest extends BaseTest {
 
     @Test (testName = "Негативные тесты для пароля", priority = 3)
     public void checkWithWrongPassword() {
-        loginPage.open();
-        loginPage.login("standard_user", "1231412314123");
+        loginPage.open()
+                .isPageOpened()
+                .login("standard_user", "1231412314123");
         assertEquals(loginPage.getErrorMessage(),
                 "Epic sadface: Username and password do not match any user in this service",
                 "SO BAAD");
@@ -45,8 +55,9 @@ public class LoginTest extends BaseTest {
 
     @Test(dataProvider = "Негативные тесты для логина")
     public void login(String user, String password, String message) {
-        loginPage.open();
-        loginPage.login(user, password);
+        loginPage.open()
+                .isPageOpened()
+                .login(user, password);
         assertEquals(loginPage.getErrorMessage(),
                 message,
                 "SO BAAD");
