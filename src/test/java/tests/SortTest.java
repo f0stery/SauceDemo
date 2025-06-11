@@ -10,7 +10,7 @@ public class SortTest extends BaseTest{
     public void checkSortAToZ() {
         loginPage.open()
                 .isPageOpened()
-                .login("standard_user", "secret_sauce")
+                .login(user, password)
                 .isPageOpened()
                 .selectSort("Name (A to Z)");
         assertTrue(productsPage.isSortedAToZ(),
@@ -21,7 +21,7 @@ public class SortTest extends BaseTest{
     public void checkSortZtoA() {
         loginPage.open()
                 .isPageOpened()
-                .login("standard_user", "secret_sauce")
+                .login(user, password)
                 .selectSort("Name (Z to A)");
         assertTrue(productsPage.isSortedZToA(),
                 "Товары должны быть отсортированы Z-A");
@@ -31,7 +31,7 @@ public class SortTest extends BaseTest{
     public void checkWrongSortAToZ() {
         loginPage.open()
                 .isPageOpened()
-                .login("standard_user", "secret_sauce")
+                .login(user, password)
                 .selectSort("Name (A to Z)");
         assertFalse(productsPage.isSortedZToA(),
                 "Это негативный тест, " +
@@ -42,7 +42,7 @@ public class SortTest extends BaseTest{
     public void checkSortLowToHigh() {
         loginPage.open()
                 .isPageOpened()
-                .login("standard_user", "secret_sauce")
+                .login(user, password)
                 .selectSort("Price (low to high)");
         assertTrue(productsPage.isSortedLowToHigh(),
                 "Товары должны быть отсортированы " +
@@ -53,7 +53,7 @@ public class SortTest extends BaseTest{
     public void checkSortHighToLow() {
         loginPage.open()
                 .isPageOpened()
-                .login("standard_user", "secret_sauce")
+                .login(user, password)
                 .selectSort("Price (high to low)");
         assertTrue(productsPage.isSortedHighToLow(),
                 "Товары должны быть отсортированы " +
@@ -64,7 +64,7 @@ public class SortTest extends BaseTest{
     public void checkWrongSort() {
         loginPage.open()
                 .isPageOpened()
-                .login("standard_user", "secret_sauce")
+                .login(user, password)
                 .selectSort("Name (A to Z)");
         assertFalse(productsPage.isSortedHighToLow(),
                 "Это негативный тест, " +

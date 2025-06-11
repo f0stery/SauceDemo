@@ -19,7 +19,7 @@ public class CartTest extends BaseTest {
     public void checkCart1() {
         loginPage.open()
                 .isPageOpened()
-                .login("standard_user", "secret_sauce")
+                .login(user, password)
                 .isPageOpened();
         productsPage.open()
                 .isPageOpened()

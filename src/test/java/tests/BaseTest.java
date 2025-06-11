@@ -13,6 +13,7 @@ import pages.CartPage;
 import pages.LoginPage;
 import pages.ProductsPage;
 
+import javax.xml.transform.sax.SAXResult;
 import java.time.Duration;
 import java.util.HashMap;
 
@@ -26,6 +27,8 @@ public class BaseTest {
     SoftAssert softAssert;
     ProductsPage productsPage;
     CartPage cartPage;
+    String user = System.getProperty("user");
+    String password = System.getProperty("password");
 
     @Parameters({"browser"})
     @BeforeMethod (alwaysRun = true, description = "Открытие браузера")
@@ -53,6 +56,9 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
+
+        System.out.println(user);
+        System.out.println(password);
     }
 
     @AfterMethod(alwaysRun = true, description = "Закрытие браузера")
