@@ -9,10 +9,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-  env:
-    USER: ${{secrets.SD_USER}}
-    PASS: ${{secrets.SD_PASSWORD}}
-
 jobs:
   build:
 
@@ -34,6 +30,7 @@ jobs:
         version: latest
     - name: Run tests
       run: mvn clean test
-    - name: Run CrossBrowser tests
-      run: mvn clean test -DsuiteXmlFile='src/test/resources/CrossBrowserTest.xml'
+      env:
+        USER: ${{secrets.SD_USER}}
+        PASS: ${{secrets.SD_PASSWORD}}
       
