@@ -1,53 +1,112 @@
-# Чек-лист сайта www.saucedemo.com
+# SauceDemo UI Test Automation
 
-### 1. Авторизация
+Educational project demonstrating UI test automation for the website  
+https://www.saucedemo.com/
 
-- [x] 1.1 Проверка поля Username;
-- [x] 1.2 Проверка поля Password;
-- [x] 1.3 Проверка кнопки Login;
+The project implements a test automation framework using Java, Selenium WebDriver and TestNG.
 
-## 2. Сортировка
+![Build](https://github.com/f0stery/SauceDemo/actions/workflows/maven.yml/badge.svg)
 
-- [x] 2.1 Поверка сортировки - Name (A to Z);
-- [x] 2.2 Проверка сортировки - Name (Z to A);
-- [x] 2.3 Проверка сортировки - Price (low to high);
-- [x] 2.4 Проверка сортировки - Price (high to low).
+---
 
+## Tech Stack
 
-## 3. Добавление товара в корзину
+- Java
+- Selenium WebDriver
+- TestNG
+- Maven
+- Allure Reports
+- Log4j2
+- Jenkins
+- GitHub Actions
 
-- [ ] 3.1 Проверка кнопки Add to cart на странице Product;
-- [ ] 3.2 Проверка кнопки Add to cart после выбора товара (нажатие на название товара);
-- [ ] 3.3 Проверка добавления нескольких товаров;
+---
 
-## 4. Удаление товара из корзины
+## Framework Features
 
-- [ ] 4.1 Проверка кнопки Remove на странице Product;
-- [ ] 4.2 Проверка кнопки Remove после выбора товара (нажатие на название товара);
+- Page Object Model (POM)
+- Cross-browser testing
+- Retry failed tests
+- TestNG Listeners
+- Logging with Log4j2
+- Allure reporting
+- CI/CD integration with GitHub Actions and Jenkins
 
-## 5. "Burger menu"
+---
 
-- [ ] Проверка перехода All Items;
-- [ ] Проверка перехода About;
-- [ ] Проверка Logout;
-- [ ] Проверка Reset App State.
-- [ ] Проверка закрытия "burger menu" после нажатия - X
+## Test Scenarios
 
-## 4. Checkout
+The framework covers the following functionality:
 
-- [ ] 4.1 Проверка валидации полей на странице - Checkout: Your Information;
+### Authorization
+- Login with valid credentials
 
-- [ ] 4.2 Проверка кнопок:
+### Product Sorting
+- Sort products by Name (A → Z)
+- Sort products by Name (Z → A)
+- Sort products by Price (Low → High)
+- Sort products by Price (High → Low)
 
-  - Проверка кнопки Continue shopping на странице Your Cart;
-  - Проверка кнопки Cancel на страницах Checkout: Your Information, Checkout: Overview;
-  - Проверка кнопки Back Home! на странице Checkout: Complete!.
+### Cart
+- Add product to cart
+- Remove product from cart
 
-- [ ] 4.3 Проверка подсчетов Price Total на странице Checkout: Overview:
+### Checkout
+- Validate checkout process
+- Verify total price calculation
 
-  - Проверка подсчета Item total;
-  - Проверка подсчета Total.
+A detailed checklist of test scenarios is available in:
 
-- [ ] 4.4 Проверка завершения покупки на странице Checkout: Complete!.
+TEST_CHECKLIST.md
 
+---
 
+## Project Structure
+src
+├── pages # Page Object classes
+├── tests # Test classes
+├── resources # Configuration file
+
+---
+
+## Run Tests
+
+Run all tests: mvn clean test
+
+Run specific suite: mvn test -DsuiteXmlFile=SmokeTest.xml
+
+---
+
+## Reports
+
+Generate and open Allure report: allure serve target/allure-results
+
+---
+
+## CI/CD
+
+Tests are automatically executed using:
+
+- GitHub Actions
+- Jenkins Pipeline
+
+---
+
+## Purpose
+
+The goal of this project is to demonstrate practical skills in:
+
+- UI test automation
+- Selenium WebDriver
+- TestNG framework
+- building maintainable test frameworks
+- CI/CD integration
+
+---
+
+## Author
+
+Evgeny Khainiuk
+
+GitHub: https://github.com/f0stery  
+LinkedIn: https://www.linkedin.com/in/evgeny-khainiuk/

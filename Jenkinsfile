@@ -11,7 +11,7 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('Run tests') {
             steps {
                 // Get some code from a GitHub repository
                 git 'https://github.com/f0stery/SauceDemo.git'
@@ -19,6 +19,7 @@ pipeline {
                 // Run Maven on a Unix agent.
                 sh "mvn clean test -Dbrowser=${params.BROWSER}"
             }
+
 
             post {
                 // If Maven was able to run the tests, even if some of the test
