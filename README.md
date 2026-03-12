@@ -1,16 +1,24 @@
-# SauceDemo UI Test Automation
+# Автоматизация тестирования SauceDemo (UI)
 
-Educational project demonstrating UI test automation for the website  
+Проект по практике в автоматизации тестирования веб-приложения  
 https://www.saucedemo.com/
 
-The project implements a test automation framework using Java, Selenium WebDriver and TestNG.
+Проект реализует фреймворк для автоматизации UI-тестов с использованием Java, Selenium WebDriver и TestNG.
 
-![Build](https://github.com/f0stery/SauceDemo/actions/workflows/maven.yml/badge.svg)
+Цель проекта — продемонстрировать практические навыки в:
+
+- автоматизации UI-тестирования
+- работе с Selenium WebDriver
+- использовании TestNG
+- построении поддерживаемых тестовых фреймворков
+- интеграции с CI/CD
+
+[![Build](https://github.com/f0stery/SauceDemo/actions/workflows/maven.yml/badge.svg)](https://github.com/f0stery/SauceDemo/actions/workflows/maven.yml)
 ![img.png](src/test/resources/screenshots/img.png)
 
 ---
 
-## Tech Stack
+## Технологический стек
 
 - Java
 - Selenium WebDriver
@@ -23,90 +31,84 @@ The project implements a test automation framework using Java, Selenium WebDrive
 
 ---
 
-## Framework Features
+## Особенности фреймворка
 
-- Page Object Model (POM)
-- Cross-browser testing
-- Retry failed tests
-- TestNG Listeners
-- Logging with Log4j2
-- Allure reporting
-- CI/CD integration with GitHub Actions and Jenkins
+- Паттерн Page Object Model (POM)
+- Кросс браузерное тестирование
+- Повторный запуск упавших тестов (Retry)
+- Listeners в TestNG
+- Логирование с Log4j2
+- Формирование отчётов Allure
+- Интеграция с CI/CD: GitHub Actions и Jenkins
 
 ---
 
-## Test Scenarios
+## Тестовые сценарии
 
-The framework covers the following functionality:
+Фреймворк покрывает следующую функциональность:
 
-### Authorization
-- Login with valid credentials
+### Авторизация
+- Вход с валидными учётными данными
 
-### Product Sorting
-- Sort products by Name (A → Z)
-- Sort products by Name (Z → A)
-- Sort products by Price (Low → High)
-- Sort products by Price (High → Low)
+### Сортировка товаров
+- Сортировка по имени (А → Я)
+- Сортировка по имени (Я → А)
+- Сортировка по цене (возрастание)
+- Сортировка по цене (убывание)
 
-### Cart
-- Add product to cart
-- Remove product from cart
+### Корзина
+- Добавление товара в корзину
+- Удаление товара из корзины
 
-### Checkout
-- Validate checkout process
-- Verify total price calculation
+### Оформление заказа
+- Проверка процесса оформления заказа
+- Проверка расчёта итоговой суммы
 
-A detailed checklist of test scenarios is available in:
+Полный чек-лист тестовых сценариев доступен в файле:
 
 TEST_CHECKLIST.md
 
 ---
 
-## Project Structure
-src
-├── pages # Page Object classes
-├── tests # Test classes
-├── resources # Configuration file
+## Запуск тестов
+
+Запуск всех тестов: mvn clean test
+
+Запуск конкретного набора тестов: mvn test -DsuiteXmlFile=SmokeTest.xml
 
 ---
 
-## Run Tests
+## Отчёты Allure
 
-Run all tests: mvn clean test
+После каждого запуска тестов формируется подробный отчёт Allure с графиками, шагами и вложениями.
 
-Run specific suite: mvn test -DsuiteXmlFile=SmokeTest.xml
+Последний сгенерированный отчёт доступен по ссылке:
 
----
 
-## Reports
 
-Generate and open Allure report: allure serve target/allure-results
 
+Отчёт обновляется автоматически после каждого прогона тестов в CI.
+
+Детали теста
 ![img_1.png](src/test/resources/screenshots/img_1.png)
+
+Как сгенерировать локально
+
+mvn allure:serve
+
 ---
 
 ## CI/CD
 
-Tests are automatically executed using:
+Тесты автоматически запускаются при каждом пуше в основную ветку с помощью:
 
-- GitHub Actions
-- Jenkins Pipeline
+GitHub Actions — для автоматического прогона
 
----
-
-## Purpose
-
-The goal of this project is to demonstrate practical skills in:
-
-- UI test automation
-- Selenium WebDriver
-- TestNG framework
-- building maintainable test frameworks
-- CI/CD integration
+Jenkins Pipeline — для демонстрации гибкости CI/CD
 
 ---
 
-## Author
+## Автор
 
 Evgeny Khainiuk
 
