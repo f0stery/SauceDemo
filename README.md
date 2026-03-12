@@ -6,6 +6,7 @@ https://www.saucedemo.com/
 The project implements a test automation framework using Java, Selenium WebDriver and TestNG.
 
 ![Build](https://github.com/f0stery/SauceDemo/actions/workflows/maven.yml/badge.svg)
+![img.png](src/test/resources/screenshots/img.png)
 
 ---
 
@@ -81,6 +82,7 @@ Run specific suite: mvn test -DsuiteXmlFile=SmokeTest.xml
 
 Generate and open Allure report: allure serve target/allure-results
 
+![img_1.png](src/test/resources/screenshots/img_1.png)
 ---
 
 ## CI/CD
